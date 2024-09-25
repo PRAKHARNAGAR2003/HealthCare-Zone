@@ -1,0 +1,291 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>HealthCare Zone</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    
+    <!-- Custom CSS -->
+    <style>
+      /* General page styles */
+      body {
+        font-family: 'Arial', sans-serif;
+        background-color: #ffffff; /* White background */
+        color: #000000; /* Black text */
+      }
+      
+      /* Navbar Styling */
+      .navbar {
+        background-color: #F8576F; /* Updated color */
+        padding: 15px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      }
+      .navbar .navbar-brand {
+        color: #ffffff; /* White text */
+        font-weight: bold;
+        font-size: 1.7rem;
+        transition: color 0.3s ease-in-out;
+      }
+      .navbar .nav-link {
+        color: #ffffff; /* White text */
+        font-weight: 500;
+        margin-right: 15px;
+        transition: color 0.3s ease-in-out;
+      }
+      .navbar .nav-link:hover {
+        color: #ffcdd2; /* Lighter pink hover effect */
+        text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+      }
+      .navbar-toggler {
+        border: none;
+      }
+      
+      /* Navbar toggler color */
+      .navbar-toggler-icon {
+        background-image: url('data:image/svg+xml;charset=UTF8,%3Csvg xmlns="http://www.w3.org/2000/svg" fill="%23ffffff" viewBox="0 0 30 30"%3E%3Cpath stroke="rgba%28255%2C 255%2C 255%2C 0.5%29" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2" d="M4 7h22M4 15h22M4 23h22"/%3E%3C/svg%3E');
+      }
+
+      /* Title Styling */
+      h1 {
+        font-size: 3rem;
+        font-weight: bold;
+        color: #F8576F; /* Updated color */
+        text-align: center;
+        margin-top: 20px;
+        text-transform: uppercase;
+        letter-spacing: 2px;
+        text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
+        animation: fadeInDown 1s ease-in-out;
+      }
+
+      /* Form Container */
+      .container {
+        max-width: 700px;
+        background-color: #ffffff; /* White background */
+        padding: 40px;
+        border-radius: 1rem;
+        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+        margin-top: 40px;
+        transition: all 0.3s ease-in-out;
+      }
+      .container:hover {
+        transform: translateY(-10px);
+        box-shadow: 0 16px 32px rgba(0, 0, 0, 0.3);
+      }
+      
+      /* Form Control Styles */
+      .form-control {
+        border-radius: 0.5rem;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        padding: 15px;
+        font-size: 1.1rem;
+        border: 2px solid #F8576F; /* Updated color */
+      }
+      .form-control:focus {
+        border-color: #ffcdd2; /* Light pink focus */
+        box-shadow: 0 0 8px rgba(255, 205, 210, 0.5);
+      }
+      
+      /* Button Styling */
+      .btn-danger {
+        background-color: #F8576F; /* Updated color */
+        border-color: #F8576F;
+        color: #ffffff; /* White text */
+        font-size: 1.2rem;
+        font-weight: bold;
+        letter-spacing: 1px;
+        padding: 14px;
+        transition: background-color 0.3s ease-in-out, transform 0.3s ease-in-out;
+        width: 100%;
+        border-radius: 0.5rem;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+      }
+      .btn-danger:hover {
+        background-color: #d23b4f; /* Slightly darker pink hover effect */
+        transform: translateY(-5px);
+        box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+      }
+      
+      /* Input label styles */
+      label {
+        font-weight: bold;
+        color: #F8576F; /* Updated color */
+        letter-spacing: 1px;
+      }
+
+      /* Form section header */
+      .form-header {
+        margin-bottom: 30px;
+        font-size: 1.5rem;
+        color: #F8576F; /* Updated color */
+        text-align: center;
+      }
+
+      /* Diagnosis Results Section Styling */
+      .result {
+        background-color: #f7f7f7; /* Light gray background */
+        padding: 30px;
+        border-radius: 15px;
+        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+        animation: fadeInUp 1s ease-in-out;
+        margin-top: 30px;
+      }
+      .result h2 {
+        font-size: 2rem;
+        font-weight: bold;
+        color: #F8576F; /* Updated color */
+        text-align: center;
+        margin-bottom: 20px;
+      }
+      .result p {
+        font-size: 1.1rem;
+        color: #333; /* Darker text */
+        line-height: 1.6;
+      }
+      .result ul {
+        list-style-type: disc;
+        padding-left: 20px;
+        color: #333; /* Darker text */
+      }
+      .result ul li {
+        font-size: 1.1rem;
+        margin-bottom: 8px;
+      }
+
+      /* Fade in animation */
+      @keyframes fadeInDown {
+        0% {
+          opacity: 0;
+          transform: translateY(-20px);
+        }
+        100% {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      /* Fade up animation for the results */
+      @keyframes fadeInUp {
+        0% {
+          opacity: 0;
+          transform: translateY(20px);
+        }
+        100% {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      /* Footer Styling */
+      .footer {
+        background-color: #000000; /* Black footer */
+        color: #ffffff; /* White text */
+        text-align: center;
+        padding: 20px;
+        margin-top: 40px;
+        font-size: 0.9rem;
+      }
+
+      /* Responsive Design */
+      @media (max-width: 768px) {
+        .btn-danger {
+          width: 100%;
+        }
+        h1 {
+          font-size: 2.5rem;
+        }
+      }
+
+    </style>
+  </head>
+  <body>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg">
+      <div class="container-fluid">
+        <a class="navbar-brand" href="/index">HealthCare Zone</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+            <li class="nav-item">
+              <a class="nav-link active" aria-current="page" href="/index">Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/about">About</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/contact">Contact</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/developer">Developer</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/blog">Blog</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Title -->
+    <h1 class="my-5">HealthCare Center</h1>
+
+    <!-- Form Container -->
+    <div class="container">
+      <div class="form-header">Symptom Checker</div>
+      <form action="/predict" method="post">
+        <div class="form-group mb-4">
+          <label for="symptoms">Enter Symptoms (comma separated)</label>
+          <input type="text" class="form-control" name="symptoms" placeholder="e.g., itching, shivering, skin rash" required>
+        </div>
+        <div class="text-center">
+          <button class="btn btn-danger">Predict Diagnosis</button>
+        </div>
+      </form>
+
+      <!-- Display Results -->
+      {% if predicted_disease %}
+      <div class="result mt-5">
+        <h2 class="text-center">Diagnosis Results</h2>
+        <p><strong>Disease: </strong>{{ predicted_disease }}</p>
+        <p><strong>Description: </strong>{{ dis_des }}</p>
+        <p><strong>Precautions: </strong></p>
+        <ul>
+          {% for precaution in dis_pre %}
+          <li>{{ precaution[0] }}</li>
+          {% endfor %}
+        </ul>
+        <p><strong>Medications: </strong></p>
+        <ul>
+          {% for med in dis_med %}
+          <li>{{ med }}</li>
+          {% endfor %}
+        </ul>
+        <p><strong>Diet: </strong></p>
+        <ul>
+          {% for diet in dis_die %}
+          <li>{{ diet }}</li>
+          {% endfor %}
+        </ul>
+        <p><strong>Workout: </strong>{{ dis_wrkout }}</p>
+      </div>
+      {% endif %}
+
+      <!-- Display error message -->
+      {% if error %}
+      <div class="alert alert-danger mt-3">{{ error }}</div>
+      {% endif %}
+    </div>
+
+    <!-- Footer
+    <div class="footer">
+      &copy; 2024 HealthCare Zone. All rights reserved.
+    </div> -->
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  </body>
+</html>
